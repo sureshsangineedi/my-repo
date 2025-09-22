@@ -25,7 +25,4 @@ jobs:
           docker build -t ${{ secrets.DOCKER_USERNAME }}/app1:latest ./app1
           docker push ${{ secrets.DOCKER_USERNAME }}/app1:latest
 
-      - name: Build and push App2 image
-        run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/app2:latest ./app2
-          docker push ${{ secrets.DOCKER_USERNAME }}/app2:latest
+    
