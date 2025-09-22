@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
  
 jobs:
-  docker:
+  docker: 
     runs-on: [self-hosted, windows ]
 
     steps:
