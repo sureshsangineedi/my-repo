@@ -1,9 +1,7 @@
 name: Get K8s Cluster Info
 
 on:
-  push:
-    branches:
-      - main  
+  workflow_dispatch:
   # run manually from Actions tab
 
 jobs:
