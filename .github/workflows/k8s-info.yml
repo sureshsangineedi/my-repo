@@ -13,9 +13,9 @@ jobs:
 
       # Optional: if your self-hosted runner does not already have kubeconfig set
       - name: Set Kubeconfig
-        run: |
-          mkdir -p $HOME/.kube
-          echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
+        # run: |
+        #   mkdir -p $HOME/.kube
+        #   echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
 
       - name: Get Nodes
         run: kubectl get nodes -o wide
