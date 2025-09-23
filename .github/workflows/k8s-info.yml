@@ -1,0 +1,27 @@
+name: Get K8s Cluster Info
+
+on:
+  workflow_dispatch:   # run manually from Actions tab
+
+jobs:
+  k8s-info:
+    runs-on: [self-hosted]   # 👈 your own runner, must have kubectl installed
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # Optional: if your self-hosted runner does not already have kubeconfig set
+      - name: Set Kubeconfig
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
+
+      - name: Get Nodes
+        run: kubectl get nodes -o wide
+
+      - name: Get Cluster Info
+        run: kubectl cluster-info
+
+      - name: Get Pods
+        run: kubectl get pods -A -o wide
