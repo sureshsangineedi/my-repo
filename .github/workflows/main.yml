@@ -9,7 +9,7 @@ on:
 jobs:
   docker:
     # Specify self-hosted runner
-    runs-on: [self-hosted]
+    runs-on: [self-hosted] 
 
     steps:
       # 1️⃣ Checkout repository
