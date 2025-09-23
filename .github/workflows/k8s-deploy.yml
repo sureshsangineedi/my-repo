@@ -5,7 +5,7 @@ on:
 
 jobs:
   k8s-deploy:
-    runs-on: [self-hosted, linux]   # 👈 your self-hosted runner
+    runs-on: [self-hosted]   # 👈 your self-hosted runner
 
     steps:
       - name: Checkout repository
@@ -23,4 +23,4 @@ jobs:
           kubectl apply -f app4/service.yaml
 
       - name: Verify deployment
-        run: kubectl get pods -l app=app4
+        run: kubectl get pods 
