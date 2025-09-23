@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app4-deployment
+  labels:
+    app: app4
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app4
+  template:
+    metadata:
+      labels:
+        app: app4
+    spec:
+      containers:
+        - name: app4-container
+          image: your-dockerhub-username/app4:latest   # 👈 update this
+          ports:
+            - containerPort: 80
