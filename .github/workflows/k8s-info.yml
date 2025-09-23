@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v3
 
       # Optional: if your self-hosted runner does not already have kubeconfig set
-      - name: Set Kubeconfig
+      # - name: Set Kubeconfig
         # run: |
         #   mkdir -p $HOME/.kube
         #   echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
