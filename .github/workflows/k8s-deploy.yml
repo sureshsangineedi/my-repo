@@ -1,0 +1,26 @@
+name: Deploy App4 to Kubernetes
+
+on:
+  workflow_dispatch:   # run manually from Actions tab
+
+jobs:
+  k8s-deploy:
+    runs-on: [self-hosted, linux]   # 👈 your self-hosted runner
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Optional: configure kubeconfig if not already set on runner
+      - name: Configure kubeconfig
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
+
+      - name: Apply manifests
+        run: |
+          kubectl apply -f app4/deployment.yaml
+          kubectl apply -f app4/service.yaml
+
+      - name: Verify deployment
+        run: kubectl get pods -l app=app4
